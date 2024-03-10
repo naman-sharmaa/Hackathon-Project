@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Community</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#eventList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#eventList li {
+    border: 1px solid #38f34179;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.full{
+    background-color: #b4b988b6;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sports Community</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="profile.html">Profile Creation</a></li>
+                <li><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="full">
+    <div class="container">
+        <section id="connect">
+            <h2>Connect with Others</h2>
+            <button onclick="showForm()">Join a Team</button>
+            <div id="joinForm" style="display: none;">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Location">
+                <input type="text" placeholder="Interested Sports">
+                <button onclick="joinTeam()">Join</button>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2>Local Events</h2>
+            <ul id="eventList">
+                <!-- Event items will be dynamically added here -->
+            </ul>
+        </section>
+    </div>
+</div>
+    <script>
+        // Sample data for events
+const eventsData = [
+    { name: "Soccer Tournament", location: "City Park", date: "2024-04-15" },
+    { name: "Basketball Pickup Game", location: "Community Center", date: "2024-04-20" }
+];
+
+// Function to display join form
+function showForm() {
+    const form = document.getElementById("joinForm");
+    form.style.display = "block";
+}
+
+// Function to join a team
+function joinTeam() {
+    // You can add your backend logic here to handle the form submission
+    alert("You have joined the team!");
+}
+
+// Function to display events
+function displayEvents() {
+    const eventList = document.getElementById("eventList");
+    eventsData.forEach(event => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${event.name} - ${event.location} (${event.date})`;
+        eventList.appendChild(listItem);
+    });
+}
+
+// Display events when the page loads
+window.onload = function() {
+    displayEvents();
+};
+
+    </script>
+</body>
+</html>
